@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pico.min.css">
+    <title>{% block title %} Home &mdash; {{ config.title }}{% endblock title %}</title>
+    {% if config.generate_feed %}
+        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+    {% endif %}
+    {% block css %}
+          <link rel="stylesheet" href="{{ get_url(path="pico.min.css", trailing_slash=false) | safe }}">
+    {% endblock css %}
+    <link href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E🏹%3C/text%3E%3C/svg%3E"rel="shortcut icon"type=image/svg+xml>
+    {% if page %}
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% elif config.description %}
+    <meta name="description" content="{{ config.description }}" />
+    {% endif %}
+    {% elif config.description %}
+        <meta name="description" content="{{ config.description }}" />
+    {% endif %}
+    {% block extra_head %}{% endblock extra_head %}
+    <style>video { width:100%; margin:20px 0; } </style>
+</head>
+<body>
+    <div class="container">
+        <br /><br />
+        
+        <h1>SourByte.dev</h1>
+        <nav>
+            <ul>
+                {% for item in config.extra.menu %}
+                    <li><a class="{% if item.path | replace(from="$BASE_URL", to=config.base_url) == current_url %}contrast{% endif %}" href="{{ item.path | safe | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% block content %}
+            <h3 id="hi-my-name-is-zenger">Hi, my name is Zenger</h3>
+            <p>I'm bad in all languages and I write in them all. You'll find code here in PHP, Python, Ruby, C, C#, Java, JavaScript, Dart, React and anything and everything thats interesting to me in the moment. /s</p>
+            <p>Most of my code is hosted on <a href="https://github.com/Zenger">github.com/zenger</a></p>
+        {% endblock content %}
+    </div>
+
+   
+</body>
+</html>
