@@ -10,7 +10,7 @@ It uses a modal to render select list, it can accept single or multiple entries,
 In essence it works like this:
 
 <video controls>
-  <source src="/assets/videos/pure-react-native-select.mp4" type="video/mp4">
+  <source src="/uploads/code/pure-react-native-select.mp4" type="video/mp4">
 </video>
 
 the api is really easy and intuitive:

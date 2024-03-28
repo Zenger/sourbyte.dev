@@ -14,7 +14,7 @@ NOTE: I leverage all date/time calculations to [momentjs](https://momentjs.com/)
 But I digress so here it is in all its glory.
 
 <video width="100%" controls>
-    <source src="/assets/videos/pure-react-native-datetime-picker.mp4" type="video/mp4">
+    <source src="/uploads/code/pure-react-native-datetime-picker.mp4" type="video/mp4">
 </video>
 
 Using it is fairly simple:
