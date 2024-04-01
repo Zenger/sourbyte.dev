@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>SourByte.dev</title>
+    <subtitle>A small blog to keep myself accountable and share some of the stuff I make.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://sourbyte.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://sourbyte.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-01T22:14:00+00:00</updated>
+    <id>https://sourbyte.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Oil Rig Dream</title>
+        <published>2024-03-01T22:14:00+00:00</published>
+        <updated>2024-03-01T22:14:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Zenger
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://sourbyte.dev/thoughts/oil-rig-dream/"/>
+        <id>https://sourbyte.dev/thoughts/oil-rig-dream/</id>
+        
+        <content type="html" xml:base="https://sourbyte.dev/thoughts/oil-rig-dream/">&lt;p&gt;I recently discovered you can use ChatGPT to visualize and share dreams. It is a wonderful thing to actually see something that seems like a memory in plain view.
+This is an AI image of a dream I had, in my mind the whole world is engulfed in water similar to the movie &amp;quot;Water World&amp;quot; or &amp;quot;Kamino&amp;quot; planet from Star Wars, except in my dream there is just one single structure similar to an oil rig that that hosts the whole world on it. I dont know why, but I wanted to document this memory and share it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;uploads&#x2F;thoughts&#x2F;oilrig-dream-1.png&quot; alt=&quot;Oil Rig Dream AI Rendition&quot; title=&quot;Oil Rig Dream AI Rendition&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;And this is a different one I like that the AI took the liberty to add ships and add a little more life into it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;uploads&#x2F;thoughts&#x2F;oilrig-dream-2.png&quot; alt=&quot;Oil Rig Dream AI Rendition 2&quot; title=&quot;Oil Rig Dream AI Rendition 2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Pure React Native Datetimepicker</title>
+        <published>2023-07-02T03:38:00+00:00</published>
+        <updated>2023-07-02T03:38:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Zenger
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://sourbyte.dev/code/pure-react-native-datetimepicker/"/>
+        <id>https://sourbyte.dev/code/pure-react-native-datetimepicker/</id>
+        
+        <content type="html" xml:base="https://sourbyte.dev/code/pure-react-native-datetimepicker/">&lt;h2 id=&quot;react-native-date-and-time-picker&quot;&gt;React Native Date and Time Picker&lt;&#x2F;h2&gt;
+&lt;p&gt;If you&#x27;re on this page that means like myself you were overwhelmed by the sheer volume of crazy date and time pickers that simply dont work or are so goofy that I cant understand why they even exist? &#x2F;s.&lt;&#x2F;p&gt;
+&lt;p&gt;Some date pickers are very well done, see &lt;a href=&quot;https:&#x2F;&#x2F;akveo.github.io&#x2F;react-native-ui-kitten&#x2F;docs&#x2F;components&#x2F;datepicker&#x2F;overview#datepicker&quot;&gt;UI Kitten Datepicker&lt;&#x2F;a&gt; but it is missing a time picker, and to be perfectly honest if I&#x27;ve found this before I spent a whole day making a new component I would&#x27;ve used that and added a hour&#x2F;minute input and called it a day.&lt;&#x2F;p&gt;
+&lt;p&gt;NOTE: I leverage all date&#x2F;time calculations to &lt;a href=&quot;https:&#x2F;&#x2F;momentjs.com&#x2F;&quot;&gt;momentjs&lt;&#x2F;a&gt; so it is required.&lt;&#x2F;p&gt;
+&lt;p&gt;But I digress so here it is in all its glory.&lt;&#x2F;p&gt;
+&lt;video width=&quot;100%&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;uploads&#x2F;code&#x2F;pure-react-native-datetime-picker.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;Using it is fairly simple:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;typescript&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-typescript &quot;&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;DateTimePicker
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Select Date&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;={my_date ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;my_date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;toDate&lt;&#x2F;span&gt;&lt;span&gt;() : new Date()}
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onDateTimeSelect&lt;&#x2F;span&gt;&lt;span&gt;={(date: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Date&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;* onChange({label: &amp;#39;scheduled_at&amp;#39;, value: date}) *&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;  }}
+&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and the code for it, there are are few constants for theming adjust as you see fit:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;typescript&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-typescript &quot;&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;React&lt;&#x2F;span&gt;&lt;span&gt;, { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;useState &lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;react&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Button&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Modal&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ScrollView&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;TextInput&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;TextInputProps&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;react-native&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;, { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Moment &lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Theme &lt;&#x2F;span&gt;&lt;span&gt;= {
+&lt;&#x2F;span&gt;&lt;span&gt;  colors: {
+&lt;&#x2F;span&gt;&lt;span&gt;    background: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#191722&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    primary: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#fb8501&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    text: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#ffffff&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Locale &lt;&#x2F;span&gt;&lt;span&gt;= {
+&lt;&#x2F;span&gt;&lt;span&gt;  weekdays: [&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Sun&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Mon&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Tues&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Wed&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Thu&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Fri&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Sat&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;  months: [
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;January&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;February&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;March&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;April&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;May&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;June&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;July&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;August&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;September&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;October&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;November&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;December&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  ],
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme &lt;&#x2F;span&gt;&lt;span&gt;= {
+&lt;&#x2F;span&gt;&lt;span&gt;  background: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Theme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;colors&lt;&#x2F;span&gt;&lt;span&gt;.background,
+&lt;&#x2F;span&gt;&lt;span&gt;  labelColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Theme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;colors&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;primary&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  text: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Theme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;colors&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;  borderColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#ffffff&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  inactive: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#3d3d3d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  today: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#fb8501&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  selectedBackground: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#fb8501&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  selectedText: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;black&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  todayBackground: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(251,133,1,0.2)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  todayText: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#fb8501&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;interface &lt;&#x2F;span&gt;&lt;span&gt;DateTimePickerProps {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;: Date;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;: string;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;onDateTimeSelect&lt;&#x2F;span&gt;&lt;span&gt;: (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;: Date) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;void;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;interface &lt;&#x2F;span&gt;&lt;span&gt;Day {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;: Moment;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selected&lt;&#x2F;span&gt;&lt;span&gt;: boolean;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;disabled&lt;&#x2F;span&gt;&lt;span&gt;?: boolean;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Input &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;: TextInputProps) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;TextInput style&lt;&#x2F;span&gt;&lt;span&gt;={{ backgroundColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.background }} {...&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;} &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;DateTimePicker&lt;&#x2F;span&gt;&lt;span&gt;: React.FC&amp;lt;DateTimePickerProps&amp;gt; = (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;: any) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;boolean&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setDate&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;Date&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.value);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;monthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setMonthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt;] =
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;boolean&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;yearEntry&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setYearEntry&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;string&amp;gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;YYYY&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setSelectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;Moment&amp;gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;minuteEntry&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setMinuteEntry&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;string&amp;gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;mm&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hourEntry&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setHourEntry&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;string&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;hh&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;));
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;label &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ddd, MMM DD, YYYY HH:mm&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;PressableFeedback &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;: any) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;        {...&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={({ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed &lt;&#x2F;span&gt;&lt;span&gt;}) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed
+&lt;&#x2F;span&gt;&lt;span&gt;            ? [
+&lt;&#x2F;span&gt;&lt;span&gt;                { opacity: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.6&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.2)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; },
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.style,
+&lt;&#x2F;span&gt;&lt;span&gt;              ]
+&lt;&#x2F;span&gt;&lt;span&gt;            : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.style;
+&lt;&#x2F;span&gt;&lt;span&gt;        }}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;children&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;decreaseMonth &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setDate&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;subtract&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;toDate&lt;&#x2F;span&gt;&lt;span&gt;());
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;increaseMonth &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setDate&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;toDate&lt;&#x2F;span&gt;&lt;span&gt;());
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;advanceToMonth &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;: number) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setDate&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;toDate&lt;&#x2F;span&gt;&lt;span&gt;());
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setMonthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;advanceToYear &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_year &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;yearEntry&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_year &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1966&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_year &lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3000&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setDate&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_year&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;toDate&lt;&#x2F;span&gt;&lt;span&gt;());
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderHeader &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;decreaseMonth&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text, fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;40 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;{&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;}&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ marginTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;}}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setMonthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;monthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;            }}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text, fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;36 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;MMMM&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;monthSelectorVisible&lt;&#x2F;span&gt;&lt;span&gt; &amp;amp;&amp;amp; (
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                position: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;absolute&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                top: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                left: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                width: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;100%&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                zIndex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10001000&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;              }}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Locale&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;months&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;) =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;                  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;advanceToMonth&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                    }}
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                      height: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;40&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                      padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                      borderBottomColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderColor,
+&lt;&#x2F;span&gt;&lt;span&gt;                      borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderWidth,
+&lt;&#x2F;span&gt;&lt;span&gt;                    }}
+&lt;&#x2F;span&gt;&lt;span&gt;                  &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text style&lt;&#x2F;span&gt;&lt;span&gt;={{ fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;18 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;}&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                );
+&lt;&#x2F;span&gt;&lt;span&gt;              })}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          )}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Input
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;yearEntry&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;defaultValue&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;yearEntry&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onChangeText&lt;&#x2F;span&gt;&lt;span&gt;={(year) =&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setYearEntry&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;)}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onBlur&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;advanceToYear&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;editable
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;              color: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;              fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;36&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;              borderBottomColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;              borderBottomWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            }}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;keyboardType&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;numeric&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;          &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, marginLeft: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;auto&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;increaseMonth&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text, fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;40 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;{&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;}&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderWeekdays &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Locale&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;weekdays&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;day&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;) =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                paddingVertical: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                borderColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderColor,
+&lt;&#x2F;span&gt;&lt;span&gt;                borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderWidth,
+&lt;&#x2F;span&gt;&lt;span&gt;              }}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text style&lt;&#x2F;span&gt;&lt;span&gt;={{ color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text, textAlign: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;day&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          );
+&lt;&#x2F;span&gt;&lt;span&gt;        })}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;selectDay &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;: Moment) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;minute&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;minuteEntry&lt;&#x2F;span&gt;&lt;span&gt;));
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;hour&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hourEntry&lt;&#x2F;span&gt;&lt;span&gt;));
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setSelectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderDays &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;startOfTheMonth &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;startOf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;firstDayOfTheMonth &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;startOfTheMonth&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;));
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lastDayOfTheMonth &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;endOf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;));
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span&gt;: Day[] = [];
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;42&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;++) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;firstDayOfTheMonth&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span&gt;({
+&lt;&#x2F;span&gt;&lt;span&gt;          date: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;            .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;startOf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;            .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;subtract&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;firstDayOfTheMonth &lt;&#x2F;span&gt;&lt;span&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;days&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;),
+&lt;&#x2F;span&gt;&lt;span&gt;          selected: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;          disabled: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        });
+&lt;&#x2F;span&gt;&lt;span&gt;      } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;=== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;firstDayOfTheMonth&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span&gt;({
+&lt;&#x2F;span&gt;&lt;span&gt;          date: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;startOf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;),
+&lt;&#x2F;span&gt;&lt;span&gt;          selected: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;          disabled: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        });
+&lt;&#x2F;span&gt;&lt;span&gt;      } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span&gt;({
+&lt;&#x2F;span&gt;&lt;span&gt;          date: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;            .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;startOf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;            .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;firstDayOfTheMonth&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;days&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;),
+&lt;&#x2F;span&gt;&lt;span&gt;          selected: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;          disabled: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        });
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_return &lt;&#x2F;span&gt;&lt;span&gt;= [];
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;++) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_return&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View key&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          {grid.slice(i * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span&gt;, i * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span&gt; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span&gt;).map((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;day&lt;&#x2F;span&gt;&lt;span&gt;, index) =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;            let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isDaySelected &lt;&#x2F;span&gt;&lt;span&gt;=
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;day&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;) &amp;amp;&amp;amp;
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(selectedDateTime, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;) &amp;amp;&amp;amp;
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(selectedDateTime, &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;            let isToday =
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(new Date(), &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;day&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;) &amp;amp;&amp;amp;
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(new Date(), &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;month&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;) &amp;amp;&amp;amp;
+&lt;&#x2F;span&gt;&lt;span&gt;              day.date.isSame(new Date(), &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;year&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;            let backgroundStyle = {
+&lt;&#x2F;span&gt;&lt;span&gt;              backgroundColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isDaySelected
+&lt;&#x2F;span&gt;&lt;span&gt;                ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedBackground
+&lt;&#x2F;span&gt;&lt;span&gt;                : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isToday
+&lt;&#x2F;span&gt;&lt;span&gt;                ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;todayBackground
+&lt;&#x2F;span&gt;&lt;span&gt;                : &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;transparent&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;            };
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;let textStyle &lt;&#x2F;span&gt;&lt;span&gt;= {};
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PressableFeedback
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;selectDay&lt;&#x2F;span&gt;&lt;span&gt;(day.date);
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                  flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  paddingHorizontal: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  paddingVertical: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;15&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderColor,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.borderWidth,
+&lt;&#x2F;span&gt;&lt;span&gt;                  backgroundColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isDaySelected
+&lt;&#x2F;span&gt;&lt;span&gt;                    ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedBackground
+&lt;&#x2F;span&gt;&lt;span&gt;                    : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isToday
+&lt;&#x2F;span&gt;&lt;span&gt;                    ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;todayBackground
+&lt;&#x2F;span&gt;&lt;span&gt;                    : &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;transparent&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                    color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isDaySelected
+&lt;&#x2F;span&gt;&lt;span&gt;                      ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedText
+&lt;&#x2F;span&gt;&lt;span&gt;                      : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isToday
+&lt;&#x2F;span&gt;&lt;span&gt;                      ? &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;todayText
+&lt;&#x2F;span&gt;&lt;span&gt;                      : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;                    textAlign: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                    fontWeight: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isToday &lt;&#x2F;span&gt;&lt;span&gt;|| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isDaySelected &lt;&#x2F;span&gt;&lt;span&gt;? &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;bold&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; : &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;normal&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                  {day.date.format(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;D&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)}
+&lt;&#x2F;span&gt;&lt;span&gt;                &amp;lt;&#x2F;Text&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;PressableFeedback&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            );
+&lt;&#x2F;span&gt;&lt;span&gt;          })}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;View&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      );
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    return _return;
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  return (
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;View&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;        onPress={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;          setOpen(!open);
+&lt;&#x2F;span&gt;&lt;span&gt;        }}
+&lt;&#x2F;span&gt;&lt;span&gt;        style={({ pressed }) =&amp;gt; [
+&lt;&#x2F;span&gt;&lt;span&gt;          pressed ? { opacity: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.6&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.2)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; } : {},
+&lt;&#x2F;span&gt;&lt;span&gt;        ]}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;            borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            borderColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#3d3d3d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;            paddingHorizontal: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            paddingVertical: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;          }}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;labelColor &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            {props.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ marginLeft: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;auto&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;()}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Modal
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;visible&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;animationType&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;slide&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;transparent&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onRequestClose&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        }}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ScrollView
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;            flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            backgroundColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.background,
+&lt;&#x2F;span&gt;&lt;span&gt;            padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            zIndex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;          }}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderHeader&lt;&#x2F;span&gt;&lt;span&gt;()}
+&lt;&#x2F;span&gt;&lt;span&gt;          {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderWeekdays&lt;&#x2F;span&gt;&lt;span&gt;()}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;column&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;renderDays&lt;&#x2F;span&gt;&lt;span&gt;()}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ paddingTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ paddingTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;22&lt;&#x2F;span&gt;&lt;span&gt;, color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Hour&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Input
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;maxLength&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hourEntry&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;defaultValue&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;hh&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onChangeText&lt;&#x2F;span&gt;&lt;span&gt;={(hour) =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setHourEntry&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hour&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setSelectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;hour&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hour&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;                  );
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                  color: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;36&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderBottomColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderBottomWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;keyboardType&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;numeric&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;              &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ paddingTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{ fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;22&lt;&#x2F;span&gt;&lt;span&gt;, color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text }}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Minute&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Input
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;maxLength&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;minuteEntry&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;defaultValue&lt;&#x2F;span&gt;&lt;span&gt;={&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;mm&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onChangeText&lt;&#x2F;span&gt;&lt;span&gt;={(minute) =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setMinuteEntry&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;minute&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setSelectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedDateTime&lt;&#x2F;span&gt;&lt;span&gt;).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;minute&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Number&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;minute&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;                  );
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                  color: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;36&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderBottomColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;                  borderBottomWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;keyboardType&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;numeric&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;              &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, marginTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;={{
+&lt;&#x2F;span&gt;&lt;span&gt;                color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ColorScheme&lt;&#x2F;span&gt;&lt;span&gt;.text,
+&lt;&#x2F;span&gt;&lt;span&gt;                textAlign: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;18&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;              }}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Selected&lt;&#x2F;span&gt;&lt;span&gt;: {selectedDateTime.format(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ddd, MMM DD, YYYY HH:mm&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;Text&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;View&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;View style={{ flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, marginTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;20 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, zIndex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Button
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  props.onDateTimeSelect(selectedDateTime.toDate());
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Select&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;              &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View style&lt;&#x2F;span&gt;&lt;span&gt;={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, zIndex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Button
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;today &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;moment&lt;&#x2F;span&gt;&lt;span&gt;(new Date());
+&lt;&#x2F;span&gt;&lt;span&gt;                  today.hour(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;12&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  today.minute(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  setHourEntry(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;12&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  setMinuteEntry(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;00&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;                  setDate(today.toDate());
+&lt;&#x2F;span&gt;&lt;span&gt;                  setSelectedDateTime(today);
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                title=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Today&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;              &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;View&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;View style={{ padding: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, zIndex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}}&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Button
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;={() =&amp;gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                }}
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Cancel&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;              &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ScrollView&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Modal&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Pure React Native Select</title>
+        <published>2023-07-02T03:38:00+00:00</published>
+        <updated>2023-07-02T03:38:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Zenger
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://sourbyte.dev/code/pure-react-native-select/"/>
+        <id>https://sourbyte.dev/code/pure-react-native-select/</id>
+        
+        <content type="html" xml:base="https://sourbyte.dev/code/pure-react-native-select/">&lt;p&gt;I was frustated with the amount of dependencies you have to pull just to get a simple picker&#x2F;selector in react native.
+So I wrote my own component thats really simple.
+It uses a modal to render select list, it can accept single or multiple entries, doesnt depend on anything. I used simple utf-8 arrow and dot to denote selection but they can be replaced with icons if you wish to pull in a dependency like &lt;a href=&quot;https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;react-native-vector-icons&quot;&gt;react-native-vector-icons&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In essence it works like this:&lt;&#x2F;p&gt;
+&lt;video controls&gt;
+  &lt;source src=&quot;&#x2F;uploads&#x2F;code&#x2F;pure-react-native-select.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;the api is really easy and intuitive:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tsx&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-tsx &quot;&gt;&lt;code class=&quot;language-tsx&quot; data-lang=&quot;tsx&quot;&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Select
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Makes&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Makes&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;{ label: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;, value: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;index &lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;  })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;myValue&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;console&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;log&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and the source code, there are a couple constants at the top for styling but it should be easy enough to adjust.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tsx&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-tsx &quot;&gt;&lt;code class=&quot;language-tsx&quot; data-lang=&quot;tsx&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;useEffect&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;useState &lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;react&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Modal&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ScrollView&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;react-native&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_primary &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#3366FF&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_text &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#000000&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_background &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;interface &lt;&#x2F;span&gt;&lt;span&gt;SelectItem {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;: string;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;: any;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;interface &lt;&#x2F;span&gt;&lt;span&gt;_SelectItem &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;SelectItem &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selected&lt;&#x2F;span&gt;&lt;span&gt;: boolean;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;interface &lt;&#x2F;span&gt;&lt;span&gt;SelectProps {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;: string;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;: SelectItem[];
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;multiple&lt;&#x2F;span&gt;&lt;span&gt;?: boolean;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;?: any;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;?: (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;: any) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;void;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Select&lt;&#x2F;span&gt;&lt;span&gt;: React.FC&amp;lt;SelectProps&amp;gt; = (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;: SelectProps) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setItems&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;SelectItem[]&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items &lt;&#x2F;span&gt;&lt;span&gt;|| []);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_items&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_setItems&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;_SelectItem[]&amp;gt;([]);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useState&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;boolean&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;useEffect&lt;&#x2F;span&gt;&lt;span&gt;(() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setItems&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedValues &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.value;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Array&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;isArray&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.value)) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedValues &lt;&#x2F;span&gt;&lt;span&gt;= [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.value];
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Array&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;isArray&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;)) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          label: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.label,
+&lt;&#x2F;span&gt;&lt;span&gt;          value: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value,
+&lt;&#x2F;span&gt;&lt;span&gt;          selected: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedValues&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;includes&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value),
+&lt;&#x2F;span&gt;&lt;span&gt;        };
+&lt;&#x2F;span&gt;&lt;span&gt;      });
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;_setItems&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;  }, [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.value]);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setItemSelected &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;: SelectItem) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.multiple) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_items&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.value === &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value) {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.selected = !&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.selected;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;      });
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;_setItems&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_i&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedValues &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_i
+&lt;&#x2F;span&gt;&lt;span&gt;        .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;filter&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.selected;
+&lt;&#x2F;span&gt;&lt;span&gt;        })
+&lt;&#x2F;span&gt;&lt;span&gt;        .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value;
+&lt;&#x2F;span&gt;&lt;span&gt;        });
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;selectedValues&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.multiple) {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_items&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.value === &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value) {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.selected = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;.selected = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_item&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;      });
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;_setItems&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_i&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;onChange&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value);
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.multiple) {
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;flexSize &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;.length &amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;6&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;items&lt;&#x2F;span&gt;&lt;span&gt;.length &amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;11&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;label &lt;&#x2F;span&gt;&lt;span&gt;= () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_items
+&lt;&#x2F;span&gt;&lt;span&gt;      .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;filter&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.selected;
+&lt;&#x2F;span&gt;&lt;span&gt;      })
+&lt;&#x2F;span&gt;&lt;span&gt;      .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.label;
+&lt;&#x2F;span&gt;&lt;span&gt;      })
+&lt;&#x2F;span&gt;&lt;span&gt;      .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;join&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Element &lt;&#x2F;span&gt;&lt;span&gt;= (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;: _SelectItem) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;key&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.value&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setItemSelected&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          ...{
+&lt;&#x2F;span&gt;&lt;span&gt;            minHeight: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;40&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;StyleSheet&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hairlineWidth&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            borderColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;black&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;          },
+&lt;&#x2F;span&gt;&lt;span&gt;          ...({ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed &lt;&#x2F;span&gt;&lt;span&gt;}) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;[
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed &lt;&#x2F;span&gt;&lt;span&gt;? { opacity: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.6&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.2)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; } : {},
+&lt;&#x2F;span&gt;&lt;span&gt;          ],
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, flexWrap: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wrap&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.multiple &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.selected &amp;amp;&amp;amp; (
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                  marginTop: -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;15&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  fontWeight: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;bold&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  marginLeft: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                  fontSize: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;50&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                ·
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            )&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, textAlign: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, marginTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.label&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.multiple &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;.selected &amp;amp;&amp;amp; (
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ marginTop: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;✓&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            )&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;({ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed &lt;&#x2F;span&gt;&lt;span&gt;}) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;[
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pressed &lt;&#x2F;span&gt;&lt;span&gt;? { opacity: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.6&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.2)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; } : {},
+&lt;&#x2F;span&gt;&lt;span&gt;        ]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            borderWidth: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0.5&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            borderColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;            paddingHorizontal: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            paddingVertical: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;            backgroundColor: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_background&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;          }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_primary &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;props&lt;&#x2F;span&gt;&lt;span&gt;.label&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;numberOfLines&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ textAlign: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;right&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, color: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;color_text &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;label&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Text&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Modal &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;animationType&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;slide&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;transparent&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;visible&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.5)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;flexSize&lt;&#x2F;span&gt;&lt;span&gt;(), flexDirection: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.5)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;              }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;white&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;ScrollView&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_items&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Element&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;item&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;                })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;ScrollView&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.5)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;              }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Pressable
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;{ flex: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, backgroundColor: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;rgba(0,0,0,0.5)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onPress&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;setOpen&lt;&#x2F;span&gt;&lt;span&gt;(!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;            }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;          &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Modal&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;View&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  );
+&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Canvas 1</title>
+        <published>2023-07-02T03:17:00+00:00</published>
+        <updated>2023-07-02T03:17:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Zenger
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://sourbyte.dev/experiments/canvas-1/"/>
+        <id>https://sourbyte.dev/experiments/canvas-1/</id>
+        
+        <content type="html" xml:base="https://sourbyte.dev/experiments/canvas-1/">&lt;p&gt;I saw a dream of an animation and I tried to recreate it. I failed miserably and all I got is this lousy attempt.
+Nonetheless here it is in all its glory: &lt;a href=&quot;https:&#x2F;&#x2F;sourbyte.dev&#x2F;uploads&#x2F;experiments&#x2F;e-canvas-1.html&quot;&gt;Canvas 1&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

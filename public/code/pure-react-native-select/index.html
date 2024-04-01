@@ -1,0 +1,248 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta content="width=device-width,initial-scale=1.0" name=viewport><title>Pure React Native Select — SourByte.dev</title><link href=https://sourbyte.dev/images/apple-touch-icon.png rel=apple-touch-icon sizes=180x180><link href=https://sourbyte.dev/images/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=https://sourbyte.dev/images/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=/site.webmanifest rel=manifest><link href=https://sourbyte.dev/atom.xml rel=alternate title=RSS type=application/atom+xml><link href=https://sourbyte.dev/pico.min.css rel=stylesheet><meta content="A small blog to keep myself accountable and share some of the stuff I make." name=description><style>video{width:100%;margin:20px 0}</style><body><div class=container><br><br><h1><img src=https://sourbyte.dev/images/apple-touch-icon.png style=max-width:80px> SourByte.dev</h1><nav><ul><li><a href=/>Home</a><li><a href=/experiments/>Experiments</a><li><a href=/thoughts/>Thoughts</a><li><a href=/code/>Code</a><li><a href=/stories/>Stories</a><li><a href=/about/>About</a></ul></nav><h3>Pure React Native Select</h3><p><i>July 2, 2023</i><p>I was frustated with the amount of dependencies you have to pull just to get a simple picker/selector in react native. So I wrote my own component thats really simple. It uses a modal to render select list, it can accept single or multiple entries, doesnt depend on anything. I used simple utf-8 arrow and dot to denote selection but they can be replaced with icons if you wish to pull in a dependency like <a href=https://www.npmjs.com/package/react-native-vector-icons>react-native-vector-icons</a>.<p>In essence it works like this:</p><video controls><source src=/uploads/code/pure-react-native-select.mp4 type=video/mp4></video><p>the api is really easy and intuitive:<pre class=language-tsx data-lang=tsx style=background:#2b303b;color:#c0c5ce><code class=language-tsx data-lang=tsx><span><</span><span style=color:#ebcb8b>Select
+</span><span>  </span><span style=color:#d08770>label</span><span>="</span><span style=color:#a3be8c>Makes</span><span>"
+</span><span>  </span><span style=color:#d08770>items</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#bf616a>Makes</span><span>.</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>item</span><span>, </span><span style=color:#bf616a>index</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#b48ead>return </span><span>{ label: </span><span style=color:#bf616a>item</span><span>, value: </span><span style=color:#bf616a>index </span><span>};
+</span><span>  })</span><span style=color:#ab7967>}
+</span><span>  </span><span style=color:#d08770>value</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#bf616a>myValue</span><span style=color:#ab7967>}
+</span><span>  </span><span style=color:#d08770>onChange</span><span>=</span><span style=color:#ab7967>{</span><span>(</span><span style=color:#bf616a>value</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#ebcb8b>console</span><span>.</span><span style=color:#96b5b4>log</span><span>(</span><span style=color:#bf616a>value</span><span>);
+</span><span>  }</span><span style=color:#ab7967>}
+</span><span>/>
+</span></code></pre><p>and the source code, there are a couple constants at the top for styling but it should be easy enough to adjust.<pre class=language-tsx data-lang=tsx style=background:#2b303b;color:#c0c5ce><code class=language-tsx data-lang=tsx><span style=color:#b48ead>import </span><span>{ </span><span style=color:#bf616a>useEffect</span><span>, </span><span style=color:#bf616a>useState </span><span>} </span><span style=color:#b48ead>from </span><span>"</span><span style=color:#a3be8c>react</span><span>";
+</span><span style=color:#b48ead>import </span><span>{
+</span><span>  </span><span style=color:#bf616a>Modal</span><span>,
+</span><span>  </span><span style=color:#bf616a>Pressable</span><span>,
+</span><span>  </span><span style=color:#bf616a>ScrollView</span><span>,
+</span><span>  </span><span style=color:#bf616a>StyleSheet</span><span>,
+</span><span>  </span><span style=color:#bf616a>Text</span><span>,
+</span><span>  </span><span style=color:#bf616a>View</span><span>,
+</span><span>} </span><span style=color:#b48ead>from </span><span>"</span><span style=color:#a3be8c>react-native</span><span>";
+</span><span>
+</span><span style=color:#b48ead>const </span><span style=color:#bf616a>color_primary </span><span>= "</span><span style=color:#a3be8c>#3366FF</span><span>";
+</span><span style=color:#b48ead>const </span><span style=color:#bf616a>color_text </span><span>= "</span><span style=color:#a3be8c>#000000</span><span>";
+</span><span style=color:#b48ead>const </span><span style=color:#bf616a>color_background </span><span>= "</span><span style=color:#a3be8c>white</span><span>";
+</span><span>
+</span><span style=color:#b48ead>interface </span><span>SelectItem {
+</span><span>  </span><span style=color:#bf616a>label</span><span>: string;
+</span><span>  </span><span style=color:#bf616a>value</span><span>: any;
+</span><span>}
+</span><span>
+</span><span style=color:#b48ead>interface </span><span>_SelectItem </span><span style=color:#b48ead>extends </span><span style=color:#a3be8c>SelectItem </span><span>{
+</span><span>  </span><span style=color:#bf616a>selected</span><span>: boolean;
+</span><span>}
+</span><span>
+</span><span style=color:#b48ead>interface </span><span>SelectProps {
+</span><span>  </span><span style=color:#bf616a>label</span><span>: string;
+</span><span>  </span><span style=color:#bf616a>items</span><span>: SelectItem[];
+</span><span>  </span><span style=color:#bf616a>multiple</span><span>?: boolean;
+</span><span>  </span><span style=color:#bf616a>value</span><span>?: any;
+</span><span>  </span><span style=color:#8fa1b3>onChange</span><span>?: (</span><span style=color:#bf616a>value</span><span>: any) </span><span style=color:#b48ead>=> </span><span>void;
+</span><span>}
+</span><span>
+</span><span style=color:#b48ead>export const </span><span style=color:#8fa1b3>Select</span><span>: React.FC&LTSelectProps> = (</span><span style=color:#bf616a>props</span><span>: SelectProps) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>  </span><span style=color:#b48ead>const </span><span>[</span><span style=color:#bf616a>items</span><span>, </span><span style=color:#bf616a>setItems</span><span>] = </span><span style=color:#8fa1b3>useState</span><span>&LTSelectItem[]>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items </span><span>|| []);
+</span><span>  </span><span style=color:#b48ead>const </span><span>[</span><span style=color:#bf616a>_items</span><span>, </span><span style=color:#bf616a>_setItems</span><span>] = </span><span style=color:#8fa1b3>useState</span><span><_SelectItem[]>([]);
+</span><span>  </span><span style=color:#b48ead>const </span><span>[</span><span style=color:#bf616a>open</span><span>, </span><span style=color:#bf616a>setOpen</span><span>] = </span><span style=color:#8fa1b3>useState</span><span>&LTboolean>(</span><span style=color:#d08770>false</span><span>);
+</span><span>
+</span><span>  </span><span style=color:#8fa1b3>useEffect</span><span>(() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#8fa1b3>setItems</span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items</span><span>);
+</span><span>    </span><span style=color:#b48ead>let </span><span style=color:#bf616a>selectedValues </span><span>= </span><span style=color:#bf616a>props</span><span>.value;
+</span><span>    </span><span style=color:#b48ead>if </span><span>(!</span><span style=color:#ebcb8b>Array</span><span>.</span><span style=color:#8fa1b3>isArray</span><span>(</span><span style=color:#bf616a>props</span><span>.value)) {
+</span><span>      </span><span style=color:#bf616a>selectedValues </span><span>= [</span><span style=color:#bf616a>props</span><span>.value];
+</span><span>    }
+</span><span>
+</span><span>    </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#ebcb8b>Array</span><span>.</span><span style=color:#8fa1b3>isArray</span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items</span><span>)) {
+</span><span>      </span><span style=color:#b48ead>let </span><span style=color:#bf616a>i </span><span>= </span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items</span><span>.</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>        </span><span style=color:#b48ead>return </span><span>{
+</span><span>          label: </span><span style=color:#bf616a>item</span><span>.label,
+</span><span>          value: </span><span style=color:#bf616a>item</span><span>.value,
+</span><span>          selected: </span><span style=color:#bf616a>selectedValues</span><span>.</span><span style=color:#8fa1b3>includes</span><span>(</span><span style=color:#bf616a>item</span><span>.value),
+</span><span>        };
+</span><span>      });
+</span><span>      </span><span style=color:#8fa1b3>_setItems</span><span>(</span><span style=color:#bf616a>i</span><span>);
+</span><span>    }
+</span><span>  }, [</span><span style=color:#bf616a>props</span><span>.value]);
+</span><span>
+</span><span>  </span><span style=color:#b48ead>const </span><span style=color:#8fa1b3>setItemSelected </span><span>= (</span><span style=color:#bf616a>item</span><span>: SelectItem) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>props</span><span>.multiple) {
+</span><span>      </span><span style=color:#b48ead>let </span><span style=color:#bf616a>_i </span><span>= </span><span style=color:#bf616a>_items</span><span>.</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>_item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>        </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>_item</span><span>.value === </span><span style=color:#bf616a>item</span><span>.value) {
+</span><span>          </span><span style=color:#bf616a>_item</span><span>.selected = !</span><span style=color:#bf616a>_item</span><span>.selected;
+</span><span>        }
+</span><span>        </span><span style=color:#b48ead>return </span><span style=color:#bf616a>_item</span><span>;
+</span><span>      });
+</span><span>      </span><span style=color:#8fa1b3>_setItems</span><span>(</span><span style=color:#bf616a>_i</span><span>);
+</span><span>      </span><span style=color:#b48ead>let </span><span style=color:#bf616a>selectedValues </span><span>= </span><span style=color:#bf616a>_i
+</span><span>        .</span><span style=color:#8fa1b3>filter</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>          </span><span style=color:#b48ead>return </span><span style=color:#bf616a>item</span><span>.selected;
+</span><span>        })
+</span><span>        .</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>          </span><span style=color:#b48ead>return </span><span style=color:#bf616a>item</span><span>.value;
+</span><span>        });
+</span><span>      </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>onChange</span><span>) {
+</span><span>        </span><span style=color:#bf616a>props</span><span>.</span><span style=color:#96b5b4>onChange</span><span>(</span><span style=color:#bf616a>selectedValues</span><span>);
+</span><span>        </span><span style=color:#b48ead>if </span><span>(!</span><span style=color:#bf616a>props</span><span>.multiple) {
+</span><span>          </span><span style=color:#8fa1b3>setOpen</span><span>(</span><span style=color:#d08770>false</span><span>);
+</span><span>        }
+</span><span>      }
+</span><span>    } </span><span style=color:#b48ead>else </span><span>{
+</span><span>      </span><span style=color:#b48ead>let </span><span style=color:#bf616a>_i </span><span>= </span><span style=color:#bf616a>_items</span><span>.</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>_item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>        </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>_item</span><span>.value === </span><span style=color:#bf616a>item</span><span>.value) {
+</span><span>          </span><span style=color:#bf616a>_item</span><span>.selected = </span><span style=color:#d08770>true</span><span>;
+</span><span>        } </span><span style=color:#b48ead>else </span><span>{
+</span><span>          </span><span style=color:#bf616a>_item</span><span>.selected = </span><span style=color:#d08770>false</span><span>;
+</span><span>        }
+</span><span>        </span><span style=color:#b48ead>return </span><span style=color:#bf616a>_item</span><span>;
+</span><span>      });
+</span><span>      </span><span style=color:#8fa1b3>_setItems</span><span>(</span><span style=color:#bf616a>_i</span><span>);
+</span><span>      </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>onChange</span><span>) {
+</span><span>        </span><span style=color:#bf616a>props</span><span>.</span><span style=color:#96b5b4>onChange</span><span>(</span><span style=color:#bf616a>item</span><span>.value);
+</span><span>        </span><span style=color:#b48ead>if </span><span>(!</span><span style=color:#bf616a>props</span><span>.multiple) {
+</span><span>          </span><span style=color:#8fa1b3>setOpen</span><span>(</span><span style=color:#d08770>false</span><span>);
+</span><span>        }
+</span><span>      }
+</span><span>    }
+</span><span>  };
+</span><span>
+</span><span>  </span><span style=color:#b48ead>const </span><span style=color:#8fa1b3>flexSize </span><span>= () </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#b48ead>if </span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items</span><span>.length < </span><span style=color:#d08770>6</span><span>) {
+</span><span>      </span><span style=color:#b48ead>return </span><span style=color:#d08770>1</span><span>;
+</span><span>    } </span><span style=color:#b48ead>else if </span><span>(</span><span style=color:#bf616a>props</span><span>.</span><span style=color:#bf616a>items</span><span>.length < </span><span style=color:#d08770>11</span><span>) {
+</span><span>      </span><span style=color:#b48ead>return </span><span style=color:#d08770>2</span><span>;
+</span><span>    } </span><span style=color:#b48ead>else </span><span>{
+</span><span>      </span><span style=color:#b48ead>return </span><span style=color:#d08770>10</span><span>;
+</span><span>    }
+</span><span>  };
+</span><span>
+</span><span>  </span><span style=color:#b48ead>const </span><span style=color:#8fa1b3>label </span><span>= () </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#b48ead>return </span><span style=color:#bf616a>_items
+</span><span>      .</span><span style=color:#8fa1b3>filter</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>        </span><span style=color:#b48ead>return </span><span style=color:#bf616a>item</span><span>.selected;
+</span><span>      })
+</span><span>      .</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>        </span><span style=color:#b48ead>return </span><span style=color:#bf616a>item</span><span>.label;
+</span><span>      })
+</span><span>      .</span><span style=color:#96b5b4>join</span><span>("</span><span style=color:#a3be8c>, </span><span>");
+</span><span>  };
+</span><span>
+</span><span>  </span><span style=color:#b48ead>const </span><span style=color:#8fa1b3>Element </span><span>= (</span><span style=color:#bf616a>item</span><span>: _SelectItem) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>    </span><span style=color:#b48ead>return </span><span>(
+</span><span>      <</span><span style=color:#ebcb8b>Pressable
+</span><span>        </span><span style=color:#d08770>key</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#bf616a>item</span><span>.value</span><span style=color:#ab7967>}
+</span><span>        </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>          </span><span style=color:#8fa1b3>setItemSelected</span><span>(</span><span style=color:#bf616a>item</span><span>);
+</span><span>        }</span><span style=color:#ab7967>}
+</span><span>        </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{
+</span><span>          ...{
+</span><span>            minHeight: </span><span style=color:#d08770>40</span><span>,
+</span><span>            borderWidth: </span><span style=color:#ebcb8b>StyleSheet</span><span>.</span><span style=color:#bf616a>hairlineWidth</span><span>,
+</span><span>            borderColor: "</span><span style=color:#a3be8c>black</span><span>",
+</span><span>          },
+</span><span>          ...({ </span><span style=color:#bf616a>pressed </span><span>}) </span><span style=color:#b48ead>=> </span><span>[
+</span><span>            </span><span style=color:#bf616a>pressed </span><span>? { opacity: </span><span style=color:#d08770>0.6</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.2)</span><span>" } : {},
+</span><span>          ],
+</span><span>        }</span><span style=color:#ab7967>}
+</span><span>      >
+</span><span>        <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, flexDirection: "</span><span style=color:#a3be8c>row</span><span>", flexWrap: "</span><span style=color:#a3be8c>wrap</span><span>" }</span><span style=color:#ab7967>}</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>            </span><span style=color:#ab7967>{</span><span>!</span><span style=color:#bf616a>props</span><span>.multiple && </span><span style=color:#bf616a>item</span><span>.selected && (
+</span><span>              <</span><span style=color:#ebcb8b>Text
+</span><span>                </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{
+</span><span>                  marginTop: -</span><span style=color:#d08770>15</span><span>,
+</span><span>                  fontWeight: "</span><span style=color:#a3be8c>bold</span><span>",
+</span><span>                  marginLeft: </span><span style=color:#d08770>10</span><span>,
+</span><span>                  fontSize: </span><span style=color:#d08770>50</span><span>,
+</span><span>                }</span><span style=color:#ab7967>}
+</span><span>              >
+</span><span>                ·
+</span><span>              &LT/</span><span style=color:#ebcb8b>Text</span><span>>
+</span><span>            )</span><span style=color:#ab7967>}
+</span><span>          &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>Text </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, textAlign: "</span><span style=color:#a3be8c>center</span><span>", marginTop: </span><span style=color:#d08770>10 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>            </span><span style=color:#ab7967>{</span><span style=color:#bf616a>item</span><span>.label</span><span style=color:#ab7967>}
+</span><span>          &LT/</span><span style=color:#ebcb8b>Text</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>            </span><span style=color:#ab7967>{</span><span style=color:#bf616a>props</span><span>.multiple && </span><span style=color:#bf616a>item</span><span>.selected && (
+</span><span>              <</span><span style=color:#ebcb8b>Text </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ marginTop: </span><span style=color:#d08770>10 </span><span>}</span><span style=color:#ab7967>}</span><span>>✓&LT/</span><span style=color:#ebcb8b>Text</span><span>>
+</span><span>            )</span><span style=color:#ab7967>}
+</span><span>          &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>        &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>      &LT/</span><span style=color:#ebcb8b>Pressable</span><span>>
+</span><span>    );
+</span><span>  };
+</span><span>
+</span><span>  </span><span style=color:#b48ead>return </span><span>(
+</span><span>    <</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>      <</span><span style=color:#ebcb8b>Pressable
+</span><span>        </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>          </span><span style=color:#8fa1b3>setOpen</span><span>(!</span><span style=color:#bf616a>open</span><span>);
+</span><span>        }</span><span style=color:#ab7967>}
+</span><span>        </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>({ </span><span style=color:#bf616a>pressed </span><span>}) </span><span style=color:#b48ead>=> </span><span>[
+</span><span>          </span><span style=color:#bf616a>pressed </span><span>? { opacity: </span><span style=color:#d08770>0.6</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.2)</span><span>" } : {},
+</span><span>        ]</span><span style=color:#ab7967>}
+</span><span>      >
+</span><span>        <</span><span style=color:#ebcb8b>View
+</span><span>          </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{
+</span><span>            borderWidth: </span><span style=color:#d08770>0.5</span><span>,
+</span><span>            borderColor: "</span><span style=color:#a3be8c>white</span><span>",
+</span><span>            paddingHorizontal: </span><span style=color:#d08770>10</span><span>,
+</span><span>            paddingVertical: </span><span style=color:#d08770>10</span><span>,
+</span><span>            flexDirection: "</span><span style=color:#a3be8c>row</span><span>",
+</span><span>            backgroundColor: </span><span style=color:#bf616a>color_background</span><span>,
+</span><span>          }</span><span style=color:#ab7967>}
+</span><span>        >
+</span><span>          <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>            <</span><span style=color:#ebcb8b>Text </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ color: </span><span style=color:#bf616a>color_primary </span><span>}</span><span style=color:#ab7967>}</span><span>></span><span style=color:#ab7967>{</span><span style=color:#bf616a>props</span><span>.label</span><span style=color:#ab7967>}</span><span>&LT/</span><span style=color:#ebcb8b>Text</span><span>>
+</span><span>          &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>3 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>            <</span><span style=color:#ebcb8b>Text
+</span><span>              </span><span style=color:#d08770>numberOfLines</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#d08770>1</span><span style=color:#ab7967>}
+</span><span>              </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ textAlign: "</span><span style=color:#a3be8c>right</span><span>", color: </span><span style=color:#bf616a>color_text </span><span>}</span><span style=color:#ab7967>}
+</span><span>            >
+</span><span>              </span><span style=color:#ab7967>{</span><span style=color:#8fa1b3>label</span><span>()</span><span style=color:#ab7967>}
+</span><span>            &LT/</span><span style=color:#ebcb8b>Text</span><span>>
+</span><span>          &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>        &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>      &LT/</span><span style=color:#ebcb8b>Pressable</span><span>>
+</span><span>
+</span><span>      <</span><span style=color:#ebcb8b>Modal </span><span style=color:#d08770>animationType</span><span>="</span><span style=color:#a3be8c>slide</span><span>" </span><span style=color:#d08770>transparent</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#d08770>true</span><span style=color:#ab7967>} </span><span style=color:#d08770>visible</span><span>=</span><span style=color:#ab7967>{</span><span style=color:#bf616a>open</span><span style=color:#ab7967>}</span><span>>
+</span><span>        <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1 </span><span>}</span><span style=color:#ab7967>}</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>Pressable
+</span><span>            </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.5)</span><span>" }</span><span style=color:#ab7967>}
+</span><span>            </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>              </span><span style=color:#8fa1b3>setOpen</span><span>(!</span><span style=color:#bf616a>open</span><span>);
+</span><span>            }</span><span style=color:#ab7967>}
+</span><span>          />
+</span><span>          <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#8fa1b3>flexSize</span><span>(), flexDirection: "</span><span style=color:#a3be8c>row</span><span>" }</span><span style=color:#ab7967>}</span><span>>
+</span><span>            <</span><span style=color:#ebcb8b>Pressable
+</span><span>              </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.5)</span><span>" }</span><span style=color:#ab7967>}
+</span><span>              </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>                </span><span style=color:#8fa1b3>setOpen</span><span>(!</span><span style=color:#bf616a>open</span><span>);
+</span><span>              }</span><span style=color:#ab7967>}
+</span><span>            />
+</span><span>            <</span><span style=color:#ebcb8b>View </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>10</span><span>, backgroundColor: "</span><span style=color:#a3be8c>white</span><span>" }</span><span style=color:#ab7967>}</span><span>>
+</span><span>              <</span><span style=color:#ebcb8b>ScrollView</span><span>>
+</span><span>                </span><span style=color:#ab7967>{</span><span style=color:#bf616a>_items</span><span>.</span><span style=color:#8fa1b3>map</span><span>((</span><span style=color:#bf616a>item</span><span>) </span><span style=color:#b48ead>=> </span><span>{
+</span><span>                  </span><span style=color:#b48ead>return </span><span style=color:#ebcb8b>Element</span><span>(</span><span style=color:#bf616a>item</span><span>);
+</span><span>                })</span><span style=color:#ab7967>}
+</span><span>              &LT/</span><span style=color:#ebcb8b>ScrollView</span><span>>
+</span><span>            &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>            <</span><span style=color:#ebcb8b>Pressable
+</span><span>              </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.5)</span><span>" }</span><span style=color:#ab7967>}
+</span><span>              </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>                </span><span style=color:#8fa1b3>setOpen</span><span>(!</span><span style=color:#bf616a>open</span><span>);
+</span><span>              }</span><span style=color:#ab7967>}
+</span><span>            />
+</span><span>          &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>          <</span><span style=color:#ebcb8b>Pressable
+</span><span>            </span><span style=color:#d08770>style</span><span>=</span><span style=color:#ab7967>{</span><span>{ flex: </span><span style=color:#d08770>1</span><span>, backgroundColor: "</span><span style=color:#a3be8c>rgba(0,0,0,0.5)</span><span>" }</span><span style=color:#ab7967>}
+</span><span>            </span><span style=color:#d08770>onPress</span><span>=</span><span style=color:#ab7967>{</span><span>() </span><span style=color:#b48ead>=> </span><span>{
+</span><span>              </span><span style=color:#8fa1b3>setOpen</span><span>(!</span><span style=color:#bf616a>open</span><span>);
+</span><span>            }</span><span style=color:#ab7967>}
+</span><span>          />
+</span><span>        &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>      &LT/</span><span style=color:#ebcb8b>Modal</span><span>>
+</span><span>    &LT/</span><span style=color:#ebcb8b>View</span><span>>
+</span><span>  );
+</span><span>};
+</span></code></pre></div>
