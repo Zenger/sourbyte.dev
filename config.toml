@@ -1,6 +1,7 @@
 # The URL the site will be built for
 base_url = "https://sourbyte.dev"
 title = "SourByte.dev"
+description = "A small blog to keep myself accountable and share some of the stuff I make."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
